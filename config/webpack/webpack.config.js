@@ -141,7 +141,7 @@ module.exports = (option = {
                 filename: pathname + '.html', // 生成的html存放路径，相对于path
                 template: path.resolve(htmlPath, pathname + '.' + viewType), // html模板路径
                 minify: {
-                    removeComments: true,
+                    removeComments: false,
                     collapseWhitespace: true,
                     removeRedundantAttributes: true,
                     useShortDoctype: true,

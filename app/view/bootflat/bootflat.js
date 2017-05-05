@@ -1,9 +1,9 @@
-alert($('div')[0]);
+console.log($('div')[0]);
 
 let vm = avalon.define({
-    $id: 'test',
+    $id: 'bootflat',
     name: '司徒正美',
-    array: [11, 22, 33444],
+    array: [11, 22, 33],
 });
 
 setTimeout(function() {

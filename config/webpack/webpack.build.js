@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const merge = require('webpack-merge');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const Visualizer = require('webpack-visualizer-plugin');
@@ -13,7 +13,7 @@ let config = require('./webpack.config.js')({
 if (process.env.NODE_TEST === 'production') {
     config.plugins.push(
         new Visualizer({
-            filename: './statistics.html'
+            filename: './statistics.html',
         })
     )
 }

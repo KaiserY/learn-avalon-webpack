@@ -1,7 +1,9 @@
 const base = require('../base/base');
 const files = require('../base/files');
+const path = require('path');
 const HappyPack = require('happypack');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 function cHappypack(id, loaders) {
     return new HappyPack({
@@ -19,6 +21,10 @@ function cHappypack(id, loaders) {
 
 module.exports = [
     new webpack.NoEmitOnErrorsPlugin(),
+    new CopyWebpackPlugin([{
+        from: path.join(files.staticPath, 'patch/ie8'),
+        to: 'assets/ie8',
+    }]),
     new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: JSON.stringify(process.env.NODE_ENV),
@@ -45,6 +51,6 @@ module.exports = [
 
     cHappypack('JSX', [{
         loader: 'babel-loader',
-        query: require('./babel')
+        query: require('./babel'),
     }]),
 ];

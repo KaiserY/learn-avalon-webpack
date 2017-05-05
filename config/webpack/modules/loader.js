@@ -1,4 +1,4 @@
-const base = require('../base/base');
+// const base = require('../base/base');
 const files = require('../base/files');
 
 module.exports = (dev) => {
@@ -7,7 +7,7 @@ module.exports = (dev) => {
                 test: /\.jsx$|\.js$/,
                 enforce: 'pre',
                 exclude: [files.staticPath],
-                use: ['happypack/loader?id=ES3']
+                use: ['happypack/loader?id=ES3'],
             },
             {
                 test: /\.(js|jsx)$/,

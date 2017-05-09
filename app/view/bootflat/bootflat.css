@@ -1,3 +1,19 @@
+@import "../../static/bootstrap/css/bootstrap.css";
 .ms-controller {
-  visibility: hidden
+    visibility: hidden
+}
+
+div.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.example {
+    margin-bottom: 20px;
+}
+
+.example [class*=col-] {
+    margin-bottom: 10px;
 }

@@ -33,7 +33,7 @@ module.exports = (dev) => {
             },
             {
                 test: /\.(jpg|jpeg|png|gif|svg)$/,
-                include: [files.imgPath, files.viewPath],
+                include: [files.imgPath, files.viewPath, files.staticPath],
                 use: [{
                     loader: 'url-loader',
                     query: {
@@ -45,7 +45,7 @@ module.exports = (dev) => {
             },
             {
                 test: /\.(svg|ico|woff|eot|ttf)$/,
-                include: [files.fontPath, files.viewPath],
+                include: [files.fontPath, files.viewPath, files.staticPath],
                 use: [{
                     loader: 'url-loader',
                     query: {

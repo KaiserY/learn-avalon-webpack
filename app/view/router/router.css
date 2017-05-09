@@ -1,0 +1,5 @@
+@import "../../static/bootstrap/css/bootstrap.css";
+@import "../../static/bootstrap/css/simple-sidebar.css";
+.ms-controller {
+    visibility: hidden
+}

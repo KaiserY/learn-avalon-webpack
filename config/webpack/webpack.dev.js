@@ -1,8 +1,7 @@
-const base = require('./base/base.js');
-const files = require('./base/files');
+// const base = require('./base/base.js');
+// const files = require('./base/files');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 // const Dashboard = require('webpack-dashboard');
 // const DashboardPlugin = require('webpack-dashboard/plugin');
 
@@ -20,14 +19,6 @@ module.exports = merge(config, {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new BrowserSyncPlugin({
-            host: base.devHost,
-            port: base.devPort,
-            server: {
-                baseDir: [files.buildName],
-            },
-            // proxy: 'http://localhost:' + base.devPort,
-        }),
         // new DashboardPlugin(new Dashboard({
         //     color: '#fbbc05',
         //     minimal: true,

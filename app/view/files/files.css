@@ -1,0 +1,7 @@
+/*@import '../../source/css/bootstrap-sidebar.css';*/
+body {
+    overflow-x: hidden;
+}
+body.ms-controller {
+    visibility: hidden
+}

@@ -1,8 +1,3 @@
-@import "../../static/bootstrap/css/bootstrap.css";
-.ms-controller {
-    visibility: hidden
-}
-
 div.container {
     padding-right: 15px;
     padding-left: 15px;

@@ -18,5 +18,6 @@ module.exports = ((entry) => {
     'Common': [
         'lib',
         'css',
+        'bootstrap-loader',
     ],
 });

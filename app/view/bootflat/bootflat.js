@@ -1,4 +1,5 @@
-require('../../static/bootstrap/js/bootstrap.js');
+// require('../../static/bootstrap/js/bootstrap.js');
+// require('bootstrap-loader');
 
 console.log($('div')[0]);
 

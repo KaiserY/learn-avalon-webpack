@@ -15,7 +15,7 @@ if (process.env.NODE_TEST === 'production') {
         new Visualizer({
             filename: './statistics.html',
         })
-    )
+    );
 }
 
 module.exports = merge(config, {

@@ -32,8 +32,7 @@ module.exports = (dev) => {
                 use: 'text-loader',
             },
             {
-                test: /\.(jpg|jpeg|png|gif|svg)$/,
-                include: [files.imgPath, files.viewPath, files.staticPath],
+                test: /\.(jpg|jpeg|png|gif)$/,
                 use: [{
                     loader: 'url-loader',
                     query: {
@@ -44,8 +43,7 @@ module.exports = (dev) => {
                 }],
             },
             {
-                test: /\.(svg|ico|woff|eot|ttf)$/,
-                include: [files.fontPath, files.viewPath, files.staticPath],
+                test: /\.(svg|ico|woff(2?)|eot|ttf)$/,
                 use: [{
                     loader: 'url-loader',
                     query: {
@@ -54,6 +52,10 @@ module.exports = (dev) => {
                         name: 'assets/[name]-[hash:8].[ext]',
                     },
                 }],
+            },
+            {
+                test: /\.(swf)$/,
+                use: 'file-loader',
             },
         ],
     };

@@ -24,6 +24,9 @@ module.exports = [
     new CopyWebpackPlugin([{
         from: path.join(files.staticPath, 'patch/ie8'),
         to: 'assets/ie8',
+    }, {
+        from: path.join(files.jsPath, 'ie8'),
+        to: 'assets/ie8',
     }]),
     new webpack.DefinePlugin({
         'process.env': {

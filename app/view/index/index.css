@@ -1,11 +1,7 @@
-body {
-  background: url("../../source/img/avatar.jpg") no-repeat;
+body.ms-controller {
+    visibility: hidden
 }
 
-#content {
-  padding: 5rem 20rem;
-}
-
-.ms-controller {
-  visibility: hidden
+nav.footer {
+    margin-bottom: 0px;
 }

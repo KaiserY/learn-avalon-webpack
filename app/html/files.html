@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>文件列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9,10,11,edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta http-equiv="Cache-Control" content="max-age=30">
+    <!--[if lt IE 9]>
+        <script src="assets/ie8/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ms-controller="files" class="ms-controller">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" ms-attr="{href: @logoItem.href}" ms-css="{background: 'url(' + @logoItem.src + ') no-repeat center center', width: @logoItem.width}"></a>
+                <button class="navbar-toggle" data-target="#files-navbar-collapse" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="files-navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav nav-pills nav-stacked visible-xs">
+                        <li ms-for="item in @sidenavItems" ms-class="(item.isActive ? 'active' : '')">
+                            <a ms-attr="{href: item.path}">
+                                <i class="glyphicon" ms-class="item.iconClass"></i>{{' ' + item.content + ' '}}
+                            </a>
+                        </li>
+                    </ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> User <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Basic Info</div>
+                                <div class="panel-body">
+                                    <li>User Name: {{@userItem.userName}}</li>
+                                    <li>Enpt Name: {{@userItem.enterpriseName}}</li>
+                                </div>
+                            </div>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">{{@userItem.userSetting}}</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">{{@userItem.helpCenter}}</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">{{@userItem.EULA}}</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">{{@userItem.logout}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 col-lg-2 hidden-xs" role="navigation">
+                <ul class="nav nav-pills nav-stacked">
+                    <li ms-for="item in @sidenavItems" ms-class="(item.isActive ? 'active' : '')">
+                        <a ms-attr="{href: item.path}">
+                            <i class="glyphicon" ms-class="item.iconClass"></i>{{' ' + item.content + ' '}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
+                <div class="container-fluid form-inline">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-7 form-group">
+                            <ol class="breadcrumb">
+                                <a href="#">Home</a><span> |</span>
+                                <li><a href="#">AAA</a></li>
+                                <li><a href="#">BBB</a></li>
+                                <li class="active">CCC</li>
+                            </ol>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <div class="col-xs-12 col-sm-2 form-group">
+                            <button type="button" class="btn btn-default">Adv Sreach</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
+                <div class="container-fluid form-inline">
+                    <div class="btn-toolbar" role="toolbar" aria-label="">
+                        <div class="btn-group" role="group" aria-label="">
+                            <button type="button" class="btn btn-default">Left</button>
+                            <button type="button" class="btn btn-default">Middle</button>
+                            <button type="button" class="btn btn-default">Right</button>
+                        </div>
+                        <div class="btn-group" role="group" aria-label="">
+                            <button type="button" class="btn btn-default">Left</button>
+                            <button type="button" class="btn btn-default">Middle</button>
+                            <button type="button" class="btn btn-default">Right</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-9 col-md-10 col-lg-10">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-10">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Panel heading</div>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Username</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry</td>
+                                            <td>the Bird</td>
+                                            <td>@twitter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2 hidden-xs" role="navigation">
+                            <ul class="list-group">
+                                <li class="list-group-item">aaa</li>
+                                <li class="list-group-item">bbb</li>
+                                <li class="list-group-item">ccc</li>
+                                <li class="list-group-item">ddd</li>
+                                <li class="list-group-item">eee</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!--[if lt IE 9]>
+    <script src="assets/ie8/respond.src.js"></script>
+<![endif]-->
+<!--[if lt IE 10]>
+    <script src="assets/ie8/placeholder.js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+    <script src="assets/ie8/clipboard-ie8.js"></script>
+<![endif]-->
+
+</html>
+
+<!--[if lt IE 9]>
+<button id="copy-clipboard-ie8" class="btn" ms-attr="{'data-clipboard-text': @copyText}" onclick="copyToClip(this)">Copy to clipboard</button>
+<![endif]-->
+<!--[if (gte IE 9) | (!IE)]><!-->
+<!--<button id="copy-clipboard-js" class="btn" ms-attr="{'data-clipboard-text': @copyText}">{{@copyText}}</button>-->
+<!--<![endif]-->

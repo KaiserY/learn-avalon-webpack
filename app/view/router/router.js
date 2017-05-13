@@ -1,4 +1,4 @@
-require('../../static/bootstrap/js/bootstrap.js');
+// require('bootstrap-loader');
 require('../../static/avalon/mmRouter');
 
 var vm = avalon.define({

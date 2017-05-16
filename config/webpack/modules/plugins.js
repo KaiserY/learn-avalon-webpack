@@ -21,6 +21,11 @@ function cHappypack(id, loaders) {
 
 module.exports = [
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery',
+    }),
     new CopyWebpackPlugin([{
         from: path.join(files.staticPath, 'patch/ie8'),
         to: 'assets/ie8',

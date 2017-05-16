@@ -14,63 +14,12 @@
 </head>
 
 <body ms-controller="router" class="ms-controller">
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="#!/side/1">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#!/side/2">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#!/side/3">Overview</a>
-                </li>
-                <li>
-                    <a href="#!/side/4">Events</a>
-                </li>
-                <li>
-                    <a href="#!/side/5">About</a>
-                </li>
-                <li>
-                    <a href="#!/side/6">Services</a>
-                </li>
-                <li>
-                    <a href="#!/side/7">Contact</a>
-                </li>
-            </ul>
-        </div>
+    <ul>
+        <li><a href="#/ms-header">ms-header</a></li>
+        <li><a href="#/ms-number">ms-number</a></li>
+    </ul>
+    <div style="background-color:#f0f0f0;" ms-html="@view">
 
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens,
-                            and will appear non-collapsed on larger screens. When toggled using the button below, the menu
-                            will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle" ms-click="@toggleMenu($event) | prevent">Toggle Menu</a>
-
-                        <div id="content">
-                            <h1>avalon2+mmRouter</h1>
-                            <p>使用webpack对 avalon与mmRouter进行打包(hash模式)</p>
-                            <p><a href='#!/aaa'>点我</a></p>
-                            <p><a href='#!/bbb'>点我</a></p>
-                            <p><a href='#!/ccc'>点我</a></p>
-                            <p><a href='#!/ddd/111/222'>点我</a></p>
-                            <p>{{@currPath}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </body>
 

@@ -1,44 +1,29 @@
-console.log($('div')[0]);
+require('../../static/avalon/mmRouter');
+require('../../component/ms-index-login/ms-index-login.js');
+require('../../component/ms-index-download/ms-index-download.js');
 
 let vm = avalon.define({
     $id: 'index',
 
-    username: '',
-    password: '',
-
-    labelUserName: 'User Name',
-    labelPassword: 'Password',
-
-    labelUserNameClass: '',
-    labelPasswordClass: '',
-
-    validate: {
-        onManual: avalon.noop,
-        onSuccess: function(reasons, event) {
-            reasons.forEach(function(reason) {
-                if (reason.element.id === 'index-login-username') {
-                    vm.labelUserNameClass = '';
-                    vm.labelUserName = 'User Name';
-                } else if (reason.element.id === 'index-login-password') {
-                    vm.labelPasswordClass = '';
-                    vm.labelPassword = 'Password';
-                }
-            });
-        },
-        onError: function(reasons, event) {
-            reasons.forEach(function(reason) {
-                if (reason.element.id === 'index-login-username') {
-                    vm.labelUserNameClass = 'has-error';
-                    vm.labelUserName = reason.message;
-                } else if (reason.element.id === 'index-login-password') {
-                    vm.labelPasswordClass = 'has-error';
-                    vm.labelPassword = reason.message;
-                }
-            });
-        },
-    },
-
-    login: function(event) {
-        console.log(vm.username + '' + vm.password);
-    },
+    currentPath: 'login',
+    currentView: loadView('ms-index-login'),
 });
+
+avalon.router.add('/', function() {
+    vm.currentPath = 'login';
+    vm.currentView = loadView('ms-index-login');
+});
+
+avalon.router.add('/:id', function(id) {
+    vm.currentPath = id;
+    vm.currentView = loadView('ms-index-' + id);
+});
+
+avalon.history.start({
+    root: '/',
+    hashPrefix: '',
+});
+
+function loadView(view) {
+    return '<xmp ms-widget="{is: \'' + view + '\', id: \'' + view + '\'}"></xmp>';
+}

@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="jumbotron">
+                <h1>Image</h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="jumbotron">
+                <form ms-validate="@validate">
+                    <div class="form-group" ms-class="@labelUserNameClass">
+                        <label class="control-label" for="index-login-username">{{@labelUserName}}</label>
+                        <input type="text" class="form-control" id="index-login-username" placeholder="User Name" ms-duplex="@username" ms-rules="{number:true,required:true}">
+                    </div>
+                    <div class="form-group" ms-class="@labelPasswordClass">
+                        <label class="control-label" for="index-login-password">{{@labelPassword}}</label>
+                        <input type="password" class="form-control" id="index-login-password" placeholder="Password" ms-duplex="@password" ms-rules="{required:true}">
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox"> Remember me</label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default" ms-click="@login($event) | prevent">Login</button>
+                    </div>
+                    <div class="form-group">
+                        <a href="#">Reset Password</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="jumbotron">
+                <h1>Download</h1>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <h1>Footer</h1>
+    </footer>
+</div>

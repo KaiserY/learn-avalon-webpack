@@ -45,15 +45,15 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
-	 * 
+	 *
 	 * version 1.0
 	 * built in 2015.11.19
-	 * 
+	 *
 	 * v0.9.6
 	 * 修正gasAttribute typo
 	 * 修正mmHistory document.write BUG
-	 * 
-	 * 
+	 *
+	 *
 	 */
 
 	var mmHistory = __webpack_require__(6)
@@ -155,7 +155,7 @@
 	    },
 	    /*
 	     *  @interface avalon.router.navigate 设置历史(改变URL)
-	     *  @param hash 访问的url hash   
+	     *  @param hash 访问的url hash
 	     */
 	    navigate: function (hash, mode) {
 	        var parsed = parseQuery(hash)
@@ -169,7 +169,7 @@
 	        // 模式1, 改变URL, 不产生历史实体,   执行回调
 	        // 模式2, 改变URL, 产生历史实体,    执行回调
 	        if (mode === 1) {
-	          
+
 	            avalon.history.setHash(hash, true)
 	        } else if (mode === 2) {
 	            avalon.history.setHash(hash)
@@ -640,7 +640,7 @@
 /* 7 */
 /***/ function(module, exports) {
 
-	
+
 	function supportLocalStorage() {
 	    try {//看是否支持localStorage
 	        localStorage.setItem("avalon", 1)
@@ -680,7 +680,7 @@
 	        setCookie('msLastPath', path)
 	    }
 	    function setCookie(key, value) {
-	        var date = new Date()//将date设置为1天以后的时间 
+	        var date = new Date()//将date设置为1天以后的时间
 	        date.setTime(date.getTime() + 1000 * 60 * 60 * 24)
 	        document.cookie = escapeCookie(key) + '=' + escapeCookie(value) + ';expires=' + date.toGMTString()
 	    }

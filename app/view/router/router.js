@@ -1,39 +1,78 @@
 // require('bootstrap-loader');
 require('../../static/avalon/mmRouter');
 
-var vm = avalon.define({
-    $id: 'router',
-    currPath: '',
-
-    toggleMenu: function(e) {
-        console.log([].slice.call(arguments).join(' '));
-        $('#wrapper').toggleClass('toggled');
+function heredoc(fn) {
+    return fn.toString().replace(/^[^\/]+\/\*!?\s?/, '').
+    replace(/\*\/[^\/]+$/, '').trim().replace(/>\s*</g, '><');
+}
+avalon.component('ms-number', {
+    template: heredoc(function() {
+        /*
+         <div cached="true">{{@num}}<input :duplex-number="@num"/>
+         <button type="button" :on-click="@onPlus">+++</button>
+         </div>
+         */
+    }),
+    defaults: {
+        num: 1,
+        onPlus: function() {
+            this.num++;
+        },
+        onDispose: function() {
+            console.log('dispose');
+        },
+    },
+});
+avalon.component('ms-header', {
+    template: heredoc(function() {
+        /*
+         <div cached="true">
+         <h4>{{@title}}</h4>
+         <p><button type="button" :on-click="@onChangeTitle">change</button></p>
+         </div>
+         */
+    }),
+    defaults: {
+        title: '这是标题',
+        onChangeTitle: function(e) {
+            this.title = '改变了title' + (new Date - 0);
+        },
+        onDispose: function() {
+            console.log('dispose');
+        },
     },
 });
 
-avalon.router.add('/aaa', function(a) {
-    vm.currPath = this.path;
+var vm = avalon.define({
+    $id: 'router',
+    view: '',
 });
 
-avalon.router.add('/bbb', function(a) {
-    vm.currPath = this.path;
-});
-
-avalon.router.add('/ccc', function(a) {
-    vm.currPath = this.path;
-});
-
-avalon.router.add('/ddd/:ddd/:eee', function(a) { // :ddd为参数
-    vm.currPath = this.path;
-});
-
-avalon.router.add('/side/:id', function(id) {
-    vm.currPath = this.path;
+avalon.router.add('/', function() {
+    var id = 'ms-header';
     console.log(id);
+
+    // vm.view = '<' + id + ' cached="true" ms-widget="{$id:\'' + id + '\'}"></' + id + '>';
+    vm.view = '<xmp is="' + id + '"></xmp>';
+});
+
+avalon.router.add('/:id', function(id) {
+    console.log(id);
+
+    // vm.view = '<' + id + ' cached="true" ms-widget="{$id:\'' + id + '\'}"></' + id + '>';
+    vm.view = '<xmp is="' + id + '"></xmp>';
 });
 
 avalon.history.start({
-    root: '/mmRouter',
+    root: '/',
+    hashPrefix: '',
 });
 
-avalon.scan(document.body);
+// window.addEventListener('hashchange', function(e) {
+//     var hash = e.newURL.split('#/')[1];
+//     vm.view = '<' + hash + ' cached="true" ms-widget="{$id:\'' + hash + '\'}"></' + hash + '>';
+// });
+
+// avalon.scan(document.body);
+
+// avalon.router.navigate('ms-header', 1);

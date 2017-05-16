@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-function copyToClip(event) {
+function copyToClip4ie8(event) {
     var txt = event.getAttribute('data-clipboard-text');
 
     if (window.clipboardData && window.clipboardData.setData) {

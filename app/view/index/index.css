@@ -1,7 +1,2 @@
-body.ms-controller {
-    visibility: hidden
-}
-
-nav.footer {
-    margin-bottom: 0px;
-}
+@import "../../component/ms-index-login/ms-index-login.css";
+@import "../../component/ms-index-download/ms-index-download.css";

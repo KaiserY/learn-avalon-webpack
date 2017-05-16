@@ -10,6 +10,9 @@
     <!--[if lt IE 9]>
         <script src="assets/ie8/html5shiv.min.js"></script>
     <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="assets/ie8/clipboard-ie8.js"></script>
+    <![endif]-->
 </head>
 
 <body ms-controller="files" class="ms-controller">
@@ -94,14 +97,12 @@
                 <div class="container-fluid form-inline">
                     <div class="btn-toolbar" role="toolbar" aria-label="">
                         <div class="btn-group" role="group" aria-label="">
-                            <button type="button" class="btn btn-default">Left</button>
-                            <button type="button" class="btn btn-default">Middle</button>
+                            <button type="button" class="btn btn-default" ms-click="@notify()">Left</button>
+                            <button type="button" class="btn btn-default" ms-click="@openDialog()">Middle</button>
                             <button type="button" class="btn btn-default">Right</button>
                         </div>
                         <div class="btn-group" role="group" aria-label="">
-                            <button type="button" class="btn btn-default">Left</button>
-                            <button type="button" class="btn btn-default">Middle</button>
-                            <button type="button" class="btn btn-default">Right</button>
+                            <button id="copy-clipboard-js" class="btn" ms-attr="{'data-clipboard-text': @copyText}">{{@copyText}}</button>
                         </div>
                     </div>
                 </div>
@@ -125,7 +126,7 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>Mark</td>
+                                            <td><a href="#" ms-click="@changeInput">fae</a></td>
                                             <td>Otto</td>
                                             <td>@mdo</td>
                                         </tr>
@@ -167,15 +168,5 @@
 <!--[if lt IE 10]>
     <script src="assets/ie8/placeholder.js"></script>
 <![endif]-->
-<!--[if lt IE 9]>
-    <script src="assets/ie8/clipboard-ie8.js"></script>
-<![endif]-->
 
 </html>
-
-<!--[if lt IE 9]>
-<button id="copy-clipboard-ie8" class="btn" ms-attr="{'data-clipboard-text': @copyText}" onclick="copyToClip(this)">Copy to clipboard</button>
-<![endif]-->
-<!--[if (gte IE 9) | (!IE)]><!-->
-<!--<button id="copy-clipboard-js" class="btn" ms-attr="{'data-clipboard-text': @copyText}">{{@copyText}}</button>-->
-<!--<![endif]-->
